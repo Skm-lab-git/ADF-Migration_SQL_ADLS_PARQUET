@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADF-MIGRATION-SQLSERVER-PARQUET"
+		},
+		"LS_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_PARQUET'"
+		},
+		"LS_SQL_SERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_SERVER'"
+		},
+		"LS_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://samigrationsqlserver.dfs.core.windows.net/"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1,1433"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ADF_Migration_DB"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adf_migration_user"
+		},
+		"IR-SQL-PARQUET_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/80be188b-afd1-47e0-b04c-09ecf4e01195/resourcegroups/rg_mig/providers/Microsoft.DataFactory/factories/ADF-SQL-P/integrationruntimes/IR-MIG"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADF-MIGRATION-SQLSERVER-PARQUET_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_PARQUET_accountKey": {
+						"value": "[parameters('LS_PARQUET_accountKey')]"
+					},
+					"LS_SQL_SERVER_password": {
+						"value": "[parameters('LS_SQL_SERVER_password')]"
+					},
+					"LS_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_PARQUET_properties_typeProperties_url')]"
+					},
+					"IR-SQL-PARQUET_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('IR-SQL-PARQUET_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"LS_SQL_SERVER_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_server')]"
+					},
+					"LS_SQL_SERVER_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_database')]"
+					},
+					"LS_SQL_SERVER_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_SERVER_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

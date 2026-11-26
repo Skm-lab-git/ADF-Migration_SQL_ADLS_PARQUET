@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-MIGRATION-SQLSERVER-PARQUET"
+		},
+		"LS_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_SERVER_password": {
+			"value": ""
+		},
+		"LS_PARQUET_properties_typeProperties_url": {
+			"value": "https://samigrationsqlserver.dfs.core.windows.net/"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_server": {
+			"value": "127.0.0.1,1433"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_database": {
+			"value": "ADF_Migration_DB"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_userName": {
+			"value": "adf_migration_user"
+		},
+		"IR-SQL-PARQUET_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/80be188b-afd1-47e0-b04c-09ecf4e01195/resourcegroups/rg_mig/providers/Microsoft.DataFactory/factories/ADF-SQL-P/integrationruntimes/IR-MIG"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
