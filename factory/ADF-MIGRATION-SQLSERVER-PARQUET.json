@@ -1,0 +1,16 @@
+{
+	"name": "ADF-MIGRATION-SQLSERVER-PARQUET",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true,
+			"isExplicitlySet": false
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4c52e8fa-fc9c-4bc8-a64b-706ec8b131c7",
+		"tenantId": "04edc7b3-b405-4bad-b82e-5c33f00eabdb"
+	}
+}

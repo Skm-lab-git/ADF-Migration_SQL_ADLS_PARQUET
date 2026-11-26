@@ -1,0 +1,21 @@
+{
+	"name": "LS_SQL_SERVER",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "127.0.0.1,1433",
+			"database": "ADF_Migration_DB",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "adf_migration_user",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4ZWI3YjZlOC0yMTEwLTQxMTUtOGM3Yy05ZmUwZmNmMmNmOWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-SQL-PARQUET",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

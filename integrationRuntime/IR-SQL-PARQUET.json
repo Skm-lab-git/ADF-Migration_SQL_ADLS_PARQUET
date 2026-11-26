@@ -1,0 +1,12 @@
+{
+	"name": "IR-SQL-PARQUET",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/80be188b-afd1-47e0-b04c-09ecf4e01195/resourcegroups/rg_mig/providers/Microsoft.DataFactory/factories/ADF-SQL-P/integrationruntimes/IR-MIG",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
